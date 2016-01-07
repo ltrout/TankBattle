@@ -42,22 +42,35 @@ namespace Management
 
 		public void DisableControl ()
 		{
-			PMove.enabled = false;
-			PAttack.enabled = false;
+            if ( PMove != null && PAttack != null )
+            {
+                PMove.enabled = false;
+                PAttack.enabled = false;
+            }
 
-			EMove.enabled = false;
-			EAttack.enabled = false;
+            if ( EMove != null && EAttack != null )
+            {
+                EMove.enabled = false;
+                EAttack.enabled = false;
+            }
 
-			CanvasGameObject.SetActive (false);
+            CanvasGameObject.SetActive( false );
+            
 		}
 
 		public void EnableControl ()
 		{
-			PMove.enabled = true;
-			PAttack.enabled = true;
+            if ( PMove != null && PAttack != null )
+            {
+                PMove.enabled = true;
+                PAttack.enabled = true;
+            }
 
-			EMove.enabled = true;
-			EAttack.enabled = true;
+            if ( EMove != null && EAttack != null )
+            {
+                EMove.enabled = true;
+                EAttack.enabled = true;
+            }
 
 			CanvasGameObject.SetActive (true);
 		}
