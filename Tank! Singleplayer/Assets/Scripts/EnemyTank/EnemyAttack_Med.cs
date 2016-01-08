@@ -6,7 +6,7 @@ using Shell;
 
 namespace EnemyInfo
 {
-	public class EnemyAttack : MonoBehaviour 
+	public class EnemyAttack_Med : MonoBehaviour 
 	{
 		public float timeBetweenAttacks = 0.75f;
 		public float attackDamage;

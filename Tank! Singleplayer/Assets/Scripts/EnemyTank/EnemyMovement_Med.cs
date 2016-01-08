@@ -5,13 +5,13 @@ using Shell;
 
 namespace EnemyInfo
 {
-	public class EnemyMovement : MonoBehaviour 
+	public class EnemyMovement_Med : MonoBehaviour 
 	{
 		public Transform player;
 		public Transform EnemyTank;
-		public int AttackRange = 20;
+		public int AttackRange = 27;
 		public bool inRange;
-		public int TooClose = 10;
+		public int TooClose = 9;
 
 		NavMeshAgent agent;
 		static PlayerHealth pHealth;

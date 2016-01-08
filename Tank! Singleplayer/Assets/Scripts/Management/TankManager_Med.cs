@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using PlayerInfo;
@@ -8,10 +8,10 @@ using System;
 namespace Management
 {
 	[Serializable]
-	public class TankManager 
+	public class TankManager_Med 
 	{
 		public Color PlayerColor;
-		public Transform SpawnPoint;
+		public Transform SpawnPoint_Med;
 		[HideInInspector] public GameObject Instance;
 		[HideInInspector] public string ColoredPlayerText;
 		[HideInInspector] public int Wins;
@@ -77,8 +77,8 @@ namespace Management
 
 		public void Reset ()
 		{
-			Instance.transform.position = SpawnPoint.position;
-			Instance.transform.rotation = SpawnPoint.rotation;
+			Instance.transform.position = SpawnPoint_Med.position;
+			Instance.transform.rotation = SpawnPoint_Med.rotation;
 
 			Instance.SetActive (false);
 			Instance.SetActive (true);
