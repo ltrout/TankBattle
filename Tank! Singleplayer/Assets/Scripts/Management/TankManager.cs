@@ -42,6 +42,7 @@ namespace Management
 
 		public void DisableControl ()
 		{
+<<<<<<< HEAD
 			if ( PMove != null && PAttack != null )
 			{
 				PMove.enabled = false;
@@ -56,10 +57,27 @@ namespace Management
 
 			CanvasGameObject.SetActive( false );
 
+=======
+            if ( PMove != null && PAttack != null )
+            {
+                PMove.enabled = false;
+                PAttack.enabled = false;
+            }
+
+            if ( EMove != null && EAttack != null )
+            {
+                EMove.enabled = false;
+                EAttack.enabled = false;
+            }
+
+            CanvasGameObject.SetActive( false );
+            
+>>>>>>> origin/master
 		}
 
 		public void EnableControl ()
 		{
+<<<<<<< HEAD
 			if ( PMove != null && PAttack != null )
 			{
 				PMove.enabled = true;
@@ -71,6 +89,19 @@ namespace Management
 				EMove.enabled = true;
 				EAttack.enabled = true;
 			}
+=======
+            if ( PMove != null && PAttack != null )
+            {
+                PMove.enabled = true;
+                PAttack.enabled = true;
+            }
+
+            if ( EMove != null && EAttack != null )
+            {
+                EMove.enabled = true;
+                EAttack.enabled = true;
+            }
+>>>>>>> origin/master
 
 			CanvasGameObject.SetActive (true);
 		}
