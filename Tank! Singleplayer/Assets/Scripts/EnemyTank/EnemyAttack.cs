@@ -24,6 +24,7 @@ namespace EnemyInfo
 		float timer;
 		EnemyMovement eMove;
 		ShellExplosion sExplo;
+		bool isMiss;
 
 		void OnEnable ()
 		{
@@ -38,7 +39,7 @@ namespace EnemyInfo
 			eMove = GetComponent<EnemyMovement> ();
 		}
 
-		void Update ()
+		void LateUpdate ()
 		{
 			timer += Time.deltaTime;
 
@@ -51,15 +52,13 @@ namespace EnemyInfo
 
 		void Attack ()
 		{
-			LaunchForce = Random.Range (15, 30);
+			LaunchForce = Random.Range (10, 30);
 
 			timer = 0f;
 
 			Rigidbody shellInstance = Instantiate (Shell, FireTransform.position, FireTransform.rotation) as Rigidbody;
 
 			shellInstance.velocity = LaunchForce * FireTransform.forward;
-
-
 		}
 	}
 }

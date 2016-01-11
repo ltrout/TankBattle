@@ -18,7 +18,7 @@ namespace EnemyInfo
 		static EnemyHealth eHealth;
 		Rigidbody Rigidbody;
 
-		void Awake ()
+		void Start ()
 		{
 			player = GameObject.FindWithTag ("Player").transform;
 			pHealth = player.GetComponent<PlayerHealth> ();
@@ -26,17 +26,17 @@ namespace EnemyInfo
 			Rigidbody = GetComponent<Rigidbody> ();
 		}
 
-		void OnEnable ()
+		public void OnEnable ()
 		{
 			Rigidbody.isKinematic = false;
 		}
 
-		void OnDisable ()
+		public void OnDisable ()
 		{
 			Rigidbody.isKinematic = true;
 		}
 
-		void Update ()
+		void FixedUpdate ()
 		{
 			NavMeshAgent agent = GetComponent<NavMeshAgent> ();
 

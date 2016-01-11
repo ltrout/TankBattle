@@ -80,13 +80,15 @@ namespace Management
 
 		private IEnumerator RoundStarting ()
 		{
-			ResetAllTanks ();
+			//ResetAllTanks ();
 			DisableTankControl ();
 
 			CameraControl.SetStartPositionAndSize ();
 
 			RoundNumber++;
 			MessageText.text = "ROUND " + RoundNumber;
+
+			ResetAllTanks ();
 
 			yield return StartWait;
 		}
@@ -141,8 +143,11 @@ namespace Management
 		{
 			for (int i = 0; i < Tanks.Length; i++)
 			{
-				if (Tanks[i].Instance.activeSelf)
-					return Tanks[i];
+				if (Tanks [i].Instance.activeSelf) 
+				{
+					return Tanks [i];
+					Debug.Log (RoundWinner.ColoredPlayerText + " won round" + RoundNumber);
+				}
 			}
 
 			return null;
@@ -152,8 +157,11 @@ namespace Management
 		{
 			for (int i = 0; i < Tanks.Length; i++)
 			{
-				if (Tanks[i].Wins == NumRoundsToWin)
-					return Tanks[i];
+				if (Tanks [i].Wins == NumRoundsToWin) 
+				{
+					return Tanks [i];
+					Debug.Log (RoundWinner.ColoredPlayerText + "won the game");
+				}
 			}
 
 			return null;

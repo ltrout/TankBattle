@@ -51,6 +51,15 @@ namespace EnemyInfo
 			}
 		}
 
+		void Update ()
+		{
+			if (Input.GetKeyDown (KeyCode.End)) 
+			{
+				CurrentHealth = 0;
+				OnDeath ();
+			}
+		}
+
 		void SetHealthUI ()
 		{
 			Slider.value = CurrentHealth;
