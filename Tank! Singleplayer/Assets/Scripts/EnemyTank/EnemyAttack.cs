@@ -10,7 +10,7 @@ namespace EnemyInfo
 	{
 		public float timeBetweenAttacks = 0.75f;
 		public float attackDamage;
-		public Rigidbody Shell;
+		public GameObject Shell;
 		public Transform FireTransform;
 		public AudioSource ShootingAudio;
 		public AudioClip Firing;
@@ -27,9 +27,6 @@ namespace EnemyInfo
 		float timer;
 		EnemyMovement eMove;
 		ShellExplosion sExplo;
-		bool isMiss;
-		float distance;
-		int randPercent;
 
 		void OnEnable ()
 		{
@@ -42,11 +39,6 @@ namespace EnemyInfo
 			pHealth = player.GetComponent<PlayerHealth> ();
 			eHealth = GetComponent<EnemyHealth> ();
 			eMove = GetComponent<EnemyMovement> ();
-		}
-
-		void FixedUpdate ()
-		{
-			float distance = Vector3.Distance (PTank.position, ETank.position);
 		}
 
 		void LateUpdate ()
@@ -65,18 +57,16 @@ namespace EnemyInfo
 
 			if (randPercent <= missChance) 
 			{
-				LaunchForce = distance * 2;
+				LaunchForce = 100;
 			} 
 			else 
 			{
-				LaunchForce = distance;
+				LaunchForce = eMove.shotDistance;
 			}
-
-			Debug.Log (LaunchForce);
 
 			timer = 0f;
 
-			Rigidbody shellInstance = Instantiate (Shell, FireTransform.position, FireTransform.rotation) as Rigidbody;
+			Rigidbody shellInstance = (Instantiate (Shell, FireTransform.position, FireTransform.rotation) as GameObject).GetComponent<Rigidbody>();
 
 			shellInstance.velocity = LaunchForce * FireTransform.forward;
 		}
