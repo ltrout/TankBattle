@@ -14,8 +14,6 @@ namespace EnemyInfo
 		public bool inRange;
 		public int TooClose = 10;
 
-		[HideInInspector] public float shotDistance;
-
 		NavMeshAgent agent;
 		static PlayerHealth pHealth;
 		static EnemyHealth eHealth;
@@ -27,8 +25,6 @@ namespace EnemyInfo
 			pHealth = player.GetComponent<PlayerHealth> ();
 			eHealth = GetComponent<EnemyHealth> ();
 			Rigidbody = GetComponent<Rigidbody> ();
-
-			Debug.Log (player, player);
 		}
 
 		public void OnEnable ()
@@ -41,7 +37,7 @@ namespace EnemyInfo
 			Rigidbody.isKinematic = true;
 		}
 
-		public void FixedUpdate ()
+		public void Update ()
 		{
 			NavMeshAgent agent = GetComponent<NavMeshAgent> ();
 
@@ -65,8 +61,6 @@ namespace EnemyInfo
 			{
 				inRange = false;
 			}
-
-			shotDistance = Vector3.Distance (player.position, EnemyTank.position);
 		}
 	}
 }

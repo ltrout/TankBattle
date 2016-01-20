@@ -6,7 +6,7 @@ using Shell;
 
 namespace EnemyInfo
 {
-	public class EnemyAttack : MonoBehaviour 
+	public class Enemy_HardAttack : MonoBehaviour 
 	{
 		public float timeBetweenAttacks = 0.75f;
 		public float attackDamage;
@@ -17,7 +17,7 @@ namespace EnemyInfo
 		public float LaunchForce;
 		public Transform ETank;
 		public Transform PTank;
-		public int missChance = 45;
+		public int missChance = 25;
 
 		PlayerHealth pHealth;
 		EnemyHealth eHealth;
@@ -40,7 +40,7 @@ namespace EnemyInfo
 		void Awake ()
 		{
 			PTank = GameObject.Find("PlayerTank(Clone)").transform;
-			ETank = GameObject.Find("EnemyTank(Clone)").transform;
+			ETank = GameObject.Find("EnemyTank_Hard(Clone)").transform;
 			pHealth = PTank.GetComponent<PlayerHealth> ();
 			eHealth = ETank.GetComponent<EnemyHealth> ();
 			eMove = ETank.GetComponent<EnemyMovement> ();

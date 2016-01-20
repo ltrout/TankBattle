@@ -8,7 +8,7 @@ using System;
 namespace Management
 {
 	[Serializable]
-	public class TankManager_Med 
+	public class TankManager_Hard
 	{
 		public Color PlayerColor;
 		public Transform SpawnPoint;
@@ -19,7 +19,7 @@ namespace Management
 		private PlayerMovement PMove;
 		private PlayerAttack PAttack;
 		private EnemyMovement EMove;
-		private Enemy_MedAttack EAttack;
+		private Enemy_HardAttack EAttack;
 		private GameObject CanvasGameObject;
 
 		public void Setup ()
@@ -27,7 +27,7 @@ namespace Management
 			PMove = Instance.GetComponent<PlayerMovement> ();
 			PAttack = Instance.GetComponent<PlayerAttack> ();
 			EMove = Instance.GetComponent<EnemyMovement> ();
-			EAttack = Instance.GetComponent<Enemy_MedAttack> ();
+			EAttack = Instance.GetComponent<Enemy_HardAttack> ();
 			CanvasGameObject = Instance.GetComponentInChildren<Canvas> ().gameObject;
 
 			ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB (PlayerColor) + ">TANK " + "</color>";

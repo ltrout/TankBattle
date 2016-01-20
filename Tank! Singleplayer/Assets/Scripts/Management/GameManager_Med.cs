@@ -21,8 +21,8 @@ namespace Management
 		private int RoundNumber;                 
 		private WaitForSeconds StartWait;        
 		private WaitForSeconds EndWait;          
-		private TankManager RoundWinner;         
-		private TankManager GameWinner;          
+		private TankManager_Med RoundWinner;         
+		private TankManager_Med GameWinner;   
 
 		private void Start()
 		{
@@ -80,13 +80,15 @@ namespace Management
 
 		private IEnumerator RoundStarting ()
 		{
-			ResetAllTanks ();
+			//ResetAllTanks ();
 			DisableTankControl ();
 
 			CameraControl.SetStartPositionAndSize ();
 
 			RoundNumber++;
 			MessageText.text = "ROUND " + RoundNumber;
+
+			ResetAllTanks ();
 
 			yield return StartWait;
 		}
@@ -137,23 +139,31 @@ namespace Management
 			return numTanksLeft <= 1;
 		}
 
-		private TankManager GetRoundWinner()
+		private TankManager_Med GetRoundWinner()
 		{
 			for (int i = 0; i < Tanks.Length; i++)
 			{
-				if (Tanks[i].Instance.activeSelf)
-					return Tanks[i];
+				if (Tanks [i].Instance.activeSelf) 
+				{
+					return Tanks [i];
+					#pragma warning disable
+					Debug.Log (RoundWinner.ColoredPlayerText + " won round" + RoundNumber);
+				}
 			}
 
 			return null;
 		}
 
-		private TankManager GetGameWinner()
+		private TankManager_Med GetGameWinner()
 		{
 			for (int i = 0; i < Tanks.Length; i++)
 			{
-				if (Tanks[i].Wins == NumRoundsToWin)
-					return Tanks[i];
+				if (Tanks [i].Wins == NumRoundsToWin) 
+				{
+					return Tanks [i];
+					#pragma warning disable
+					Debug.Log (RoundWinner.ColoredPlayerText + "won the game");
+				}
 			}
 
 			return null;

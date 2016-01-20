@@ -7,5 +7,8 @@ public class InGameControls : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 				Application.Quit();
+
+		if (Input.GetKeyDown (KeyCode.P))
+				Application.LoadLevel (5);
 	}
 }

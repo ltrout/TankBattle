@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace Management
 {
-	public class GameManager : MonoBehaviour
+	public class GameManager_Hard : MonoBehaviour
 	{
 		public int NumRoundsToWin = 5;            
 		public float StartDelay = 3f;          
@@ -16,13 +16,13 @@ namespace Management
 		public Text MessageText;                 
 		public GameObject PlayerPrefab;       
 		public GameObject EnemyPrefab;
-		public TankManager[] Tanks;               
+		public TankManager_Hard[] Tanks;               
 
 		private int RoundNumber;                 
 		private WaitForSeconds StartWait;        
 		private WaitForSeconds EndWait;          
-		private TankManager RoundWinner;         
-		private TankManager GameWinner;   
+		private TankManager_Hard RoundWinner;         
+		private TankManager_Hard GameWinner;   
 
 		private void Start()
 		{
@@ -43,7 +43,7 @@ namespace Management
 					Tanks[i].Instance = Instantiate (PlayerPrefab, Tanks[i].SpawnPoint.position, Tanks[i].SpawnPoint.rotation) as GameObject;
 				else
 					Tanks[i].Instance = Instantiate (EnemyPrefab, Tanks[i].SpawnPoint.position, Tanks[i].SpawnPoint.rotation) as GameObject;
-				
+
 				Tanks[i].Setup();
 			}
 		}
@@ -139,7 +139,7 @@ namespace Management
 			return numTanksLeft <= 1;
 		}
 
-		private TankManager GetRoundWinner()
+		private TankManager_Hard GetRoundWinner()
 		{
 			for (int i = 0; i < Tanks.Length; i++)
 			{
@@ -154,7 +154,7 @@ namespace Management
 			return null;
 		}
 
-		private TankManager GetGameWinner()
+		private TankManager_Hard GetGameWinner()
 		{
 			for (int i = 0; i < Tanks.Length; i++)
 			{
