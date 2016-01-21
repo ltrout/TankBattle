@@ -15,7 +15,6 @@ namespace PlayerInfo
 		public Color FullHealth = Color.green;
 		public Color ZeroHealth = Color.red;
 		public GameObject ExplosionPrefab;
-		public int EnemyWinRound = 1;
 
 		AudioSource ExplosionAudio;
 		ParticleSystem ExplosionParticles;

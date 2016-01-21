@@ -37,11 +37,12 @@ namespace EnemyInfo
 			Rigidbody.isKinematic = true;
 		}
 
-		public void Update ()
+		public void LateUpdate ()
 		{
 			NavMeshAgent agent = GetComponent<NavMeshAgent> ();
 
-			if (pHealth.CurrentHealth > 0 && eHealth.CurrentHealth > 0) 
+			//if (pHealth.CurrentHealth > 0 && eHealth.CurrentHealth > 0) 
+			if (agent.enabled)
 			{
 				agent.SetDestination (player.position);
 				transform.LookAt (player.position);

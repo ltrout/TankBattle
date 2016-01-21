@@ -60,7 +60,7 @@ namespace Management
 
 		public void EnableControl ()
 		{
-			if ( PMove != null && PAttack != null )
+			if ( PMove != null && PAttack != null)
 			{
 				PMove.enabled = true;
 				PAttack.enabled = true;

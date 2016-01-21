@@ -80,7 +80,7 @@ namespace Management
 
 		private IEnumerator RoundStarting ()
 		{
-			//ResetAllTanks ();
+			ResetAllTanks ();
 			DisableTankControl ();
 
 			CameraControl.SetStartPositionAndSize ();

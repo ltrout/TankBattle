@@ -15,7 +15,6 @@ namespace EnemyInfo
 		public Color FullHealth = Color.green;
 		public Color ZeroHealth = Color.red;
 		public GameObject ExplosionPrefab;
-		public int PlayerWinRound = 1;
 
 		AudioSource ExplosionAudio;
 		ParticleSystem ExplosionParticles;
@@ -78,8 +77,6 @@ namespace EnemyInfo
 
 			ExplosionAudio.Play ();
 			gameObject.SetActive (false);
-
-			//ScoreManager.PlayerScore += PlayerWinRound;
 		}
 	}
 }

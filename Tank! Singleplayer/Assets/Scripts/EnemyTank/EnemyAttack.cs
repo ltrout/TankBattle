@@ -46,7 +46,7 @@ namespace EnemyInfo
 			eMove = ETank.GetComponent<EnemyMovement> ();
 		}
 
-		void FixedUpdate ()
+		void Update ()
 		{
 			distance = Vector3.Distance (PTank.position, ETank.position);
 			//Debug.Log ("D: " + distance + " | " + "P: " + PTank.position + " | " + "E: " + ETank.position);
